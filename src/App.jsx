@@ -90,7 +90,7 @@ function App() {
 
   return (
     <>
-      <Header title="Head Hunter Application" />
+      <Header title="HR Application" />
       <main>
         {employees.map((employee,index)=>(
           <Person employee={employee} key={index}/>
