@@ -1,3 +1,17 @@
+import AnimalEmojis from './AnimalEmojis'
+
+function findEmoji(animalName) {
+    let search = AnimalEmojis.find(animal => animal.name.toLowerCase() === animalName.toLowerCase())
+    
+    if (search == undefined){
+        search = { name: "Unknown", icon: "🐾" }
+    }
+
+    return (
+        search
+    )    
+}
+
 function Person(props) {
     return (
         <div className="person-card">
@@ -6,7 +20,7 @@ function Person(props) {
             <p>Salary: {props.employee.salary} euro</p>
             <p>Phone: {props.employee.phone}</p>
             <p>E-mail: {props.employee.email}</p>
-            <p>Animal: {props.employee.animal}</p>
+            <p>Animal: {props.employee.animal} {findEmoji(props.employee.animal).icon}</p>
         </div>
     )
 }
