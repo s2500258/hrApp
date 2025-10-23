@@ -60,7 +60,7 @@ function App() {
     salary: 52000,
     phone: "+358 45 665 4433",
     email: "miko.kallio@techcorp.fi",
-    animal: "Cat"
+    animal: "dog"
   },
   {
     name: "Sanni Järvinen",
@@ -88,16 +88,19 @@ function App() {
   }
 ]
 
+const title="HR Application"
+const copyright="Copyrights by WP25K"
+
   return (
     <>
-      <Header title="HR Application" />
+      <Header title={title} />
       <main>
         {employees.map((employee,index)=>(
           <Person employee={employee} key={index}/>
         )
         )}
       </main>
-      <Footer copyright="Copyright by WP25K" />
+      <Footer copyright={copyright} />
     </>
   )
 }
