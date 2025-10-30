@@ -8,3 +8,9 @@ Person: accepts and displays props for name, title, salary, phone, email, and an
 Style all components, appealing even to your teacher. This is your base app for next weeks.
 Commit your changes, push the branch to GitHub, create a pull request, review, and merge.npm instal
 # hrApp
+
+creating new branch: 
+
+git checkout -b week1
+
+git push origin week1
