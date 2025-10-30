@@ -98,4 +98,8 @@ main {
     font-style: italic;
     color: #888;
     margin-top: 10px;
+} 
+
+.notion {
+    color: rgb(133, 10, 10);
 }

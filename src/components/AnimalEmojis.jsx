@@ -61,6 +61,6 @@ const AnimalEmojis = [
 
   // --- Icon for the rare or unknown animal ---
   { name: "Unknown", icon: "🐾" }
-]
+];
 
-export default AnimalEmojis
+export default AnimalEmojis;
