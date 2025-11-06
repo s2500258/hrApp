@@ -35,18 +35,18 @@ function howLong(dateToCheck){
 function timeInform(time){
     const upRound = Math.ceil(time)
     switch (true) {
-  case (upRound-time<0.2) && (upRound%5===0):
-        return (
-          <p className="notion">🎉 Schedule recognition meeting</p>  ) 
-    break;
+        case (upRound-time < 0.2) && (upRound % 5 ===0):
+            return (
+                <p className="notion">🎉 Schedule recognition meeting</p>  ) 
+            break;
 
-  case time<0.5:
-      return (
-          <p className="notion">🔔 Schedule probation review</p>  )
-    break;
-  default:
-    return (
-          <p></p>  )
+        case time<0.5:
+            return (
+                <p className="notion">🔔 Schedule probation review</p>  )
+            break;
+        default:
+            return (
+                <></>  )
 }
 }
 
