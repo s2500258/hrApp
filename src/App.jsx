@@ -5,13 +5,21 @@ import Footer from './components/Footer';
 import Header from './components/header';
 import PersonList from './components/PersonList';
 import data from "./data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
 
 const copyright="Copyrights by WP25K";
-const [employees, setEmployees] = useState (data);
+const [employees, setEmployees] = useState ([]);
+
+useEffect(() => {
+    axios.get("http://localhost:3001/employees")
+      .then((response) => {
+        setEmployees(response.data);
+      });
+  }, []);
 
 const [formData, setFormData] = useState({
     "name": "",
@@ -27,8 +35,8 @@ const [formData, setFormData] = useState({
   });
 
   const handleClick = () => {
-    setEmployees([...employees, {
-      id: Date.now(),
+    axios.post("http://localhost:3001/employees", {
+      id: String(employees.length+1),
       name: formData.name,
       title: formData.title,
       salary: formData.salary,
@@ -39,7 +47,8 @@ const [formData, setFormData] = useState({
       location: formData.location,
       department: formData.department,
       skills: formData.skills.split(",")
-    }]);
+    }).then((response) => {setEmployees([...employees,response.data])
+    })
   }
 
   return (
