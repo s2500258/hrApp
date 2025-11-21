@@ -4,12 +4,16 @@
       "id": "1",
       "name": "Aino Virtanen",
       "title": "HR Manager",
-      "salary": 4200,
+      "salary": [
+        "4200"
+      ],
       "phone": "040-1234567",
       "email": "aino.virtanen@example.com",
       "animal": "Owl",
       "startDate": "2018-04-01",
-      "location": "Helsinki",
+      "location": [
+        "Helsinki"
+      ],
       "department": "Human Resources",
       "skills": [
         "Recruiting",
@@ -21,12 +25,16 @@
       "id": "2",
       "name": "Leo Mäkelä",
       "title": "Senior Software Engineer",
-      "salary": 6100,
+      "salary": [
+        "6100"
+      ],
       "phone": "050-9876543",
       "email": "leo.makela@example.com",
       "animal": "Wolf",
       "startDate": "2015-12-15",
-      "location": "Tampere",
+      "location": [
+        "Tampere"
+      ],
       "department": "Technology",
       "skills": [
         "JavaScript",
@@ -38,7 +46,9 @@
       "id": "3",
       "name": "Sofia Nieminen",
       "title": "Marketing Specialist",
-      "salary": 3800,
+      "salary": [
+        "3800"
+      ],
       "phone": "045-2345678",
       "email": "sofia.nieminen@example.com",
       "animal": "Fox",
@@ -55,7 +65,9 @@
       "id": "4",
       "name": "Elias Korhonen",
       "title": "Financial Analyst",
-      "salary": 5300,
+      "salary": [
+        "5309"
+      ],
       "phone": "040-8765432",
       "email": "elias.korhonen@example.com",
       "animal": "Bear",
@@ -129,7 +141,9 @@
       "animal": "Hedgehog",
       "startDate": "2010-12-19",
       "location": "Jyväskylä",
-      "department": "IT Support",
+      "department": [
+        "IT Supports"
+      ],
       "skills": [
         "Linux",
         "Networking",
@@ -180,6 +194,25 @@
       "animal": "",
       "startDate": "",
       "location": "",
+      "department": "",
+      "skills": [
+        ""
+      ]
+    },
+    {
+      "id": "12",
+      "name": "ffffff",
+      "title": "",
+      "salary": [
+        "111"
+      ],
+      "phone": "",
+      "email": "",
+      "animal": "s",
+      "startDate": "",
+      "location": [
+        "wewe"
+      ],
       "department": "",
       "skills": [
         ""
