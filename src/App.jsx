@@ -2,7 +2,7 @@ import About from './components/About';
 import AddEmployee from './components/AddEmployee';
 import './App.css';
 import Footer from './components/Footer';
-import Header from './components/header';
+import Header from './components/Header';
 import PersonList from './components/PersonList';
 import data from "./data";
 import { useState, useEffect } from "react";

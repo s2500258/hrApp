@@ -33,14 +33,15 @@
       "animal": "Wolf",
       "startDate": "2015-12-15",
       "location": [
-        "Tampereee"
+        "Tampere"
       ],
       "department": "Technology",
       "skills": [
         "JavaScript",
         "React",
         "Node.js"
-      ]
+      ],
+      "isEditing": true
     },
     {
       "id": "3",
