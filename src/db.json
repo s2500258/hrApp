@@ -33,7 +33,7 @@
       "animal": "Wolf",
       "startDate": "2015-12-15",
       "location": [
-        "Tampere"
+        "Tampereee"
       ],
       "department": "Technology",
       "skills": [
@@ -204,7 +204,7 @@
       "name": "ffffff",
       "title": "",
       "salary": [
-        "111"
+        "44444"
       ],
       "phone": "",
       "email": "",
@@ -213,6 +213,24 @@
       "location": [
         "wewe"
       ],
+      "department": "",
+      "skills": [
+        ""
+      ],
+      "isEditing": true
+    },
+    {
+      "id": "13",
+      "name": "asasasas",
+      "title": "",
+      "salary": [
+        "222"
+      ],
+      "phone": "",
+      "email": "",
+      "animal": "",
+      "startDate": "",
+      "location": "",
       "department": "",
       "skills": [
         ""
