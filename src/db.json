@@ -26,14 +26,14 @@
       "name": "Leo Mäkelä",
       "title": "Senior Software Engineer",
       "salary": [
-        "6100"
+        "61000"
       ],
       "phone": "050-9876543",
       "email": "leo.makela@example.com",
       "animal": "Wolf",
       "startDate": "2015-12-15",
       "location": [
-        "Tampereee"
+        "Tampere"
       ],
       "department": "Technology",
       "skills": [
@@ -216,15 +216,14 @@
       "department": "",
       "skills": [
         ""
-      ],
-      "isEditing": true
+      ]
     },
     {
       "id": "13",
       "name": "asasasas",
       "title": "",
       "salary": [
-        "222"
+        "33333"
       ],
       "phone": "",
       "email": "",

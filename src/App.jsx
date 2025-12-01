@@ -2,7 +2,7 @@ import About from './components/About';
 import AddEmployee from './components/AddEmployee';
 import './App.css';
 import Footer from './components/Footer';
-import Header from './components/header';
+import Header from './components/Header';
 import PersonList from './components/PersonList';
 import data from "./data";
 import { useState, useEffect } from "react";
@@ -127,7 +127,19 @@ const handleCreate = async () => {
 const handleSaveEmployee = async (id) => {
   try {
     const employee = employees.find(emp => emp.id === id);
-    const response = await _put(`http://localhost:3001/employees/${id}`, employee);
+    const response = await _put(`http://localhost:3001/employees/${id}`, {
+      id: employee.id,
+      name: employee.name,
+      title: employee.title,
+      salary: employee.salary,
+      phone: employee.phone,
+      email: employee.email,
+      animal: employee.animal,
+      startDate: employee.startDate,
+      location: employee.location,
+      department: employee.department,
+      skills: employee.skills
+    });
 
     // The updated employee from API
     const updatedEmployee = response.data;
