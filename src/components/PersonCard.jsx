@@ -1,6 +1,7 @@
 import AnimalEmojis from './AnimalEmojis';
 import { useState, useEffect } from "react";
 
+import { _put } from '../hooks/useAxios';
 
 function findEmoji(animalName) {
     let search = AnimalEmojis.find(animal => animal.name.toLowerCase() === animalName.toLowerCase())
@@ -13,16 +14,6 @@ function findEmoji(animalName) {
         search
     )    
 }
-
-// function skillString(arr){
-//     let string='';
-//     arr.map(item => 
-//             string = string + item + ', '
-//         )
-//     return (
-//         string.slice(0,-2)
-//     )
-// }
 
 function howLong(dateToCheck){
     const startDate = new Date(dateToCheck);
@@ -50,12 +41,6 @@ function timeInform(time){
     return (
                  <p className="notion">{informer}</p>    )
 }
-
-// const handleChange = (e) => {
-//     setEmployee((prevState) => {
-//         return { ...prevState, [e.target.name]: e.target.value}
-//     })
-//     }
 
 function PersonCard(props) {
 
