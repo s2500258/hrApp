@@ -1,0 +1,79 @@
+.editButton {
+  width: 100%;
+}
+
+.cancelButton {
+  margin-left: 10px;
+  background-color: #fba8a8;
+}
+
+.personCard {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.personCard:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color); 
+}
+
+.personCard p {
+    margin-bottom: 8px;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.personCard > :first-child {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 5px;
+}
+
+.personCard p strong {
+    font-weight: 600;
+}
+
+.personCard > :last-child {
+    color: #888;
+    margin-top: auto;
+} 
+
+.cardLine {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.lineName {
+  margin-right: 5px;
+}
+
+.notion {
+    color: rgb(133, 10, 10);
+    justify-content: center;
+}
+
+.input {
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 6px; 
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #007bff;
+}
