@@ -1,7 +1,9 @@
+import styles from './About.module.css';
+
 function About() {
   return (
       <main>
-      <div className="about-text">
+      <div className={styles.aboutText}>
         <h2>What is HR App</h2>
         <p>Nunc malesuada, nisi ac placerat aliquet, ex orci laoreet neque, eu fermentum felis augue id sem. 
         Duis ac lacus velit. Proin sed odio felis. Sed ornare, purus sit amet vehicula auctor, mi purus laoreet lorem, 

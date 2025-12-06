@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+// import styles from './AddEmployee.module.css';
 import { _post } from "../hooks/useAxios";
+import { TextField, Button, Box } from "@mui/material";
 
 function AddEmployee( { formData, setFormData, handleClick } ) {
 
@@ -33,14 +33,126 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
   };
     
   return (
-      <main>
-        <div>
-<form className="form" onSubmit={handleSubmit}>
+      <main style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "top",
+            minHeight: "100vh",
+      }}>
+        <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{
+                  display: "grid",
+                  gap: "8px",
+                  "& .MuiTextField-root": { margin: 0 }, 
+                  width: 400,
+                  "& .MuiInputBase-root": {
+                  height: "38px"}
+            }}
+            >
+      <TextField
+        label="Name"
+        name="name"
+        value={formData.name}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Title"
+        name="title"
+        value={formData.title}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Salary"
+        name="salary"
+        value={formData.salary}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Phone"
+        name="phone"
+        value={formData.phone}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="E-mail"
+        name="email"
+        value={formData.email}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Animal"
+        name="animal"
+        value={formData.animal}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Start Date"
+        name="startDate"
+        type="date"
+        value={formData.startDate}
+        size="small"
+        onChange={handleChange}
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+      />
+
+      <TextField
+        label="Location"
+        name="location"
+        value={formData.location}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Department"
+        name="department"
+        value={formData.department}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <TextField
+        label="Skills"
+        name="skills"
+        value={formData.skills}
+        size="small"
+        onChange={handleChange}
+        fullWidth
+      />
+
+      <Button type="submit" variant="contained">
+        Add employee
+      </Button>
+    </Box>
+{/* <form className={styles.form} onSubmit={handleSubmit}>
     <label htmlFor="name">Name:</label>
     <input
           id="name"
           name="name"
-          className="input"
+          className={styles.input}
           value={formData.name}
           onChange={handleChange}
     />
@@ -48,7 +160,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="title"
           name="title"
-          className="input"
+          className={styles.input}
           value={formData.title}
           onChange={handleChange}
     />
@@ -56,7 +168,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="salary"
           name="salary"
-          className="input"
+          className={styles.input}
           value={formData.salary}
           onChange={handleChange}
     />
@@ -64,7 +176,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="phone"
           name="phone"
-          className="input"
+          className={styles.input}
           value={formData.phone}
           onChange={handleChange}
     />
@@ -79,7 +191,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="animal"
           name="animal"
-          className="input"
+          className={styles.input}
           value={formData.animal}
           onChange={handleChange}
     />
@@ -87,7 +199,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="startDate"
           name="startDate"
-          className="input"
+          className={styles.input}
           value={formData.startDate}
           onChange={handleChange}
     />
@@ -95,7 +207,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="location"
           name="location"
-          className="input"
+          className={styles.input}
           value={formData.location}
           onChange={handleChange}
     />
@@ -103,7 +215,7 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="department"
           name="department"
-          className="input"
+          className={styles.input}
           value={formData.department}
           onChange={handleChange}
     />
@@ -111,13 +223,13 @@ function AddEmployee( { formData, setFormData, handleClick } ) {
     <input
           id="skills"
           name="skills"
-          className="input"
+          className={styles.input}
           value={formData.skills}
           onChange={handleChange}
     />
     <button type="submit">Add employee</button>
-</form>
-</div>
+</form> */}
+
       </main>
   )
 }
