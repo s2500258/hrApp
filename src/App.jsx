@@ -1,14 +1,200 @@
-import './App.css'
+import About from './components/About';
+import AddEmployee from './components/AddEmployee';
+import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import PersonList from './components/PersonList';
+import data from "./data";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
+
+import { _get, _post, _put } from './hooks/useAxios';
+import Statistics from './components/Statistics';
 
 function App() {
 
+const copyright="Copyrights by WP25K";
+const [employees, setEmployees] = useState ([]);
+const [loading, setLoading] = useState(true);
+const [originalEmployees, setOriginalEmployees] = useState([]);
+
+const fetchData = async () => {
+    try {
+      const response = await _get("/employees", {headers: {}});
+      setEmployees(response.data);
+      setOriginalEmployees(response.data);
+      setLoading(false);
+    } catch(error) {
+      console.log("Error fetching data", error);
+      setLoading(false);
+    }
+};
+
+useEffect(() => {
+  fetchData()
+},[]);
+
+
+const [formData, setFormData] = useState({
+    "name": "",
+    "title": "",
+    "salary": "",
+    "phone": "",
+    "email": "",
+    "animal": "",
+    "startDate": "",
+    "location": "",
+    "department": "",
+    "skills": ""
+  });
+
+const handleCreate = async () => {
+  try {
+    const newEmployee = {
+      id: String(employees.length+1),
+      name: formData.name,
+      title: formData.title,
+      salary: formData.salary,
+      phone: formData.phone,
+      email: formData.email,
+      animal: formData.animal,
+      startDate: formData.startDate,
+      location: formData.location,
+      department: formData.department,
+      skills: formData.skills.split(",")
+    };
+    const response = await _post("/employees", newEmployee);
+    setEmployees(prev => [...prev, newEmployee]);
+    setOriginalEmployees(prev => [...prev, newEmployee]);
+  } catch (error) {
+    console.error("POST failed:", error);
+  }
+};
+
+  const handleEditButton = (id) => {
+      setEmployees(employees.map(employee => 
+        employee.id===id ? {...employee, isEditing: !employee.isEditing} : employee
+      ));
+  };
+
+  const handleFieldChange = (id, fieldName, value) => {
+      setEmployees(prev =>
+        prev.map(employee =>
+            employee.id === id
+                ? { ...employee, [fieldName]: value.split(", ") }
+                : employee
+        )
+    );
+  };
+
+  const handleCancel = (id) => {
+    const original = originalEmployees.find(employee => employee.id === id);
+    setEmployees(prev =>
+      prev.map(employee =>
+        employee.id === id
+          ? { ...original, isEditing: false }
+          : employee
+      )
+    );
+  };
+
+const handleSaveEmployee = async (id) => {
+  try {
+    const employee = employees.find(emp => emp.id === id);
+    const response = await _put(`/employees/${id}`, {
+      id: employee.id,
+      name: employee.name,
+      title: employee.title,
+      salary: employee.salary,
+      phone: employee.phone,
+      email: employee.email,
+      animal: employee.animal,
+      startDate: employee.startDate,
+      location: employee.location,
+      department: employee.department,
+      skills: employee.skills
+    });
+    // The updated employee from API
+    const updatedEmployee = response.data;
+    // Update Employees
+    setEmployees(prev =>
+      prev.map(emp =>
+        emp.id === id ? { ...emp, isEditing: false } : emp
+      )
+    );
+    // Update OriginalEmployees
+    setOriginalEmployees(prev =>
+      prev.map(emp =>
+        emp.id === id ? { ...employee }  : emp
+      )
+    );
+    showToast("Employee saved!");
+  } catch (err) {
+    console.error("Error updating employee", err);
+  }
+};
+
+//   const handleSave = (id) => {
+//     const employee = employees.find(emp => emp.id === id);
+//     axios.put(`http://localhost:3001/employees/${id}`, {
+//       id: employee.id,
+//       name: employee.name,
+//       title: employee.title,
+//       salary: employee.salary,
+//       phone: employee.phone,
+//       email: employee.email,
+//       animal: employee.animal,
+//       startDate: employee.startDate,
+//       location: employee.location,
+//       department: employee.department,
+//       skills: employee.skills
+//     })
+//       .then(() => {
+//     setEmployees(prev =>
+//         prev.map(emp =>
+//         emp.id === id
+//           ? { ...emp, isEditing: false }
+//           : emp
+//       )
+//     );
+//     setOriginalEmployees(prev =>
+//       prev.map(emp =>
+//         emp.id === id
+//           ? { ...employee }  
+//           : emp
+//       )
+//     );
+//   })
+//   .catch(err => console.error(err));
+//   showToast("Employee updated successfully");
+// };
+
+const [toast, setToast] = useState("");
+
+const showToast = (msg) => {
+  setToast(msg);
+  setTimeout(() => setToast(""), 2000);  
+};
+
+  if (loading) {
+    return <div>Loading...</div>
+    }
+
   return (
-    <>
-      <div>
-        hrApp
-      </div>
-    </>
+    <Router>
+      <Header />
+      {toast && ( <div className="toast">{toast}</div>)}
+      <Routes>
+        <Route path="/" element={<PersonList employees={employees} handleEditButton={handleEditButton} 
+          handleFieldChange={handleFieldChange} handleCancel={handleCancel} handleSave={handleSaveEmployee} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/addemployee" element={<AddEmployee formData={formData} setFormData={setFormData} handleClick={handleCreate} />} />
+        <Route path="/statistics" element={<Statistics employees={employees} />} />
+      </Routes>
+      <Footer copyright={copyright} />
+    </Router>
   )
 }
 
-export default App
+export default App;

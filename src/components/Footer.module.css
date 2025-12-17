@@ -1,0 +1,11 @@
+.footer {
+    width: 100%;
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: auto; 
+    border-top: 3px solid var(--primary-color);
+}
